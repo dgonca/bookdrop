@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>book drop</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div id="header">
+      <h1 class="striptitle"><a href="<%= root_path %>">bookdrop</a></h1>
+      <div class="newbookbutton">
+        <a href="<%= new_book_path %>">add a new book</a>
+      </div>
+    </div>
+
+    <div class="newbookstrip">
+      <div class="new-form">
+        <h1>Add a Book</h1>
+
+        <%=  form_with scope: :book, url: books_path, local: true do |form| %>
+        <p>
+          <%= form.label :title %> <br>
+          <%= form.text_field :title %>
+        </p>
+
+        <p>
+          <%= form.label :author %> <br>
+          <%= form.text_field :author %>
+        </p>
+
+        <p>
+          <%= form.label :book_owned %> <br>
+          <%= form.select :book_owned, options_for_select([['Yes', true], ['No', false]]) %>
+        </p>
+
+        <p>
+          <%= form.label :year_written %> <br>
+          <%= form.text_field :year_written %>
+        </p>
+
+        <p>
+          <%= form.label :image_url %> <br>
+          <%= form.text_field :image_url %>
+        </p>
+
+        <p>
+          <%= form.submit %>
+        </p>
+
+        <% end %>
+      </div>
+    </div>
+
+
+  </body>
+</html>
